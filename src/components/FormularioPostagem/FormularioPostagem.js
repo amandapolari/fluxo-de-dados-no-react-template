@@ -8,14 +8,26 @@ import {
 
 export const FormularioCadastro = () => {
     // INPUTS CONTROLADOS | 3 PASSOS:
-    // 1. CRIAR OS ESTADOS PARA CADA INPUT
-    // 2. CRIAR AS FUNÇÕES QUE IRÃO MUDAR OS ESTADOS A PARTIR DE UM ONCLICK
-    // 3. CRIAR UM ONCHANGE PARA CADA INPUT E PASSAR PARA DENTRO DELAS A FUNÇÃO QUE FAZ AS MUDANÇAS SETANDO O ESTADO
-    // 4. O VALUE DE CADA INPUT SERA O VALOR DO ESTADO
+    // [x] 1. CRIAR OS ESTADOS PARA CADA INPUT
+    // [x] 2. CRIAR AS FUNÇÕES QUE IRÃO MUDAR OS ESTADOS A PARTIR DE UM ONCLICK
+    // [x] 3. CRIAR UM ONCHANGE PARA CADA INPUT E PASSAR PARA DENTRO DELAS A FUNÇÃO QUE FAZ AS MUDANÇAS SETANDO O ESTADO
+    // [x] 4. O VALUE DE CADA INPUT SERA O VALOR DO ESTADO
     // ------------------------------------------
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
+
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+    };
+
+    const handleImageChange = (event) => {
+        setImage(event.target.value);
+    };
+
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+    };
 
     return (
         <FormContainer>
@@ -24,17 +36,29 @@ export const FormularioCadastro = () => {
             <Form>
                 <StyledLabel htmlFor="titulo">
                     Titulo:
-                    <Input id="titulo" />
+                    <Input
+                        value={title}
+                        onChange={handleTitleChange}
+                        id="titulo"
+                    />
                 </StyledLabel>
 
                 <StyledLabel htmlFor="foto">
                     Imagem:
-                    <Input id="foto" />
+                    <Input
+                        value={image}
+                        onChange={handleImageChange}
+                        id="foto"
+                    />
                 </StyledLabel>
 
                 <StyledLabel htmlFor="descricao">
                     Descrição:
-                    <Input id="descricao" />
+                    <Input
+                        value={description}
+                        onChange={handleDescriptionChange}
+                        id="descricao"
+                    />
                 </StyledLabel>
             </Form>
         </FormContainer>
