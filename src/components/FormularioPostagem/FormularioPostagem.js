@@ -12,6 +12,8 @@ export const FormularioCadastro = ({
     handleImageChange,
     description,
     handleDescriptionChange,
+    local,
+    handleLocalChange,
 }) => {
     // INPUTS CONTROLADOS | 3 PASSOS:
     // [x] 1. CRIAR OS ESTADOS PARA CADA INPUT
@@ -49,6 +51,15 @@ export const FormularioCadastro = ({
                         value={description}
                         onChange={handleDescriptionChange}
                         id="descricao"
+                    />
+                </StyledLabel>
+
+                <StyledLabel htmlFor="local">
+                    Local:
+                    <Input
+                        value={local}
+                        onChange={handleLocalChange}
+                        id="local"
                     />
                 </StyledLabel>
             </Form>

@@ -21,6 +21,7 @@ function App() {
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
+    const [local, setLocal] = useState('');
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -32,6 +33,10 @@ function App() {
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
+    };
+
+    const handleLocalChange = (event) => {
+        setLocal(event.target.value);
     };
 
     return (
@@ -46,12 +51,15 @@ function App() {
                     handleImageChange={handleImageChange}
                     description={description}
                     handleDescriptionChange={handleDescriptionChange}
+                    local={local}
+                    handleLocalChange={handleLocalChange}
                 />
 
                 <TelaDaPostagem
                     title={title}
                     image={image}
                     description={description}
+                    local={local}
                 />
             </Container>
         </>
