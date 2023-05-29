@@ -1,6 +1,6 @@
-import styled, { createGlobalStyle } from "styled-components";
-import FormularioPostagem from "./components/FormularioPostagem/FormularioPostagem";
-import TelaDaPostagem from "./components/TelaDaPostagem/TelaDaPostagem";
+import styled, { createGlobalStyle } from 'styled-components';
+import FormularioPostagem from './components/FormularioPostagem/FormularioPostagem';
+import TelaDaPostagem from './components/TelaDaPostagem/TelaDaPostagem';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,25 +11,23 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100vw;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
 `;
 
 function App() {
-  return (
-    <>
-      <GlobalStyle />
+    return (
+        <>
+            <GlobalStyle />
 
-      <Container>
+            <Container>
+                <FormularioPostagem />
 
-        <FormularioPostagem />
-
-        <TelaDaPostagem />
-
-      </Container>
-    </>
-  );
+                <TelaDaPostagem />
+            </Container>
+        </>
+    );
 }
 
 export default App;
