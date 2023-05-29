@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import FormularioPostagem from './components/FormularioPostagem/FormularioPostagem';
 import TelaDaPostagem from './components/TelaDaPostagem/TelaDaPostagem';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -17,12 +18,35 @@ const Container = styled.div`
 `;
 
 function App() {
+    const [title, setTitle] = useState('');
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
+
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+    };
+
+    const handleImageChange = (event) => {
+        setImage(event.target.value);
+    };
+
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+    };
+
     return (
         <>
             <GlobalStyle />
 
             <Container>
-                <FormularioPostagem />
+                <FormularioPostagem
+                    title={title}
+                    handleTitleChange={handleTitleChange}
+                    image={image}
+                    handleImageChange={handleImageChange}
+                    description={description}
+                    handleDescriptionChange={handleDescriptionChange}
+                />
 
                 <TelaDaPostagem />
             </Container>
