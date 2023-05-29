@@ -48,7 +48,11 @@ function App() {
                     handleDescriptionChange={handleDescriptionChange}
                 />
 
-                <TelaDaPostagem />
+                <TelaDaPostagem
+                    title={title}
+                    image={image}
+                    description={description}
+                />
             </Container>
         </>
     );
