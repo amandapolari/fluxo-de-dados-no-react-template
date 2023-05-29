@@ -6,13 +6,13 @@ import {
     Description,
 } from './TelaDaPostagem.styled';
 
-const TelaDaPostagem = ({ title, image, description, local }) => {
+const TelaDaPostagem = ({ titleModel, imageModel, descriptionModel, local }) => {
     return (
         <ContainerPostagem>
-            <Title>{title}</Title>
+            <Title>{titleModel}</Title>
             {/* <Image src={'https://picsum.photos/536/354'} /> */}
-            <Image src={image} />
-            <Description>{description}</Description>
+            <Image src={imageModel} />
+            <Description>{descriptionModel}</Description>
             <Description>{local}</Description>
         </ContainerPostagem>
     );

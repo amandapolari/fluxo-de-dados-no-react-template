@@ -18,21 +18,30 @@ const Container = styled.div`
 `;
 
 function App() {
+    // Form
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [local, setLocal] = useState('');
 
+    // Modelo
+    const [titleModel, setTitleModel] = useState('Titulo:');
+    const [imageModel, setImageModel] = useState('https://picsum.photos/536/351');
+    const [descriptionModel, setDescriptionModel] = useState('Descrição:');
+
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
+        setTitleModel(event.target.value);
     };
 
     const handleImageChange = (event) => {
         setImage(event.target.value);
+        setImageModel(event.target.value);
     };
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
+        setDescriptionModel(event.target.value);
     };
 
     const handleLocalChange = (event) => {
@@ -56,9 +65,9 @@ function App() {
                 />
 
                 <TelaDaPostagem
-                    title={title}
-                    image={image}
-                    description={description}
+                    titleModel={titleModel}
+                    imageModel={imageModel}
+                    descriptionModel={descriptionModel}
                     local={local}
                 />
             </Container>
