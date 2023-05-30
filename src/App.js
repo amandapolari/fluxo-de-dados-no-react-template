@@ -1,6 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
-import FormularioPostagem from "./components/FormularioPostagem/FormularioPostagem";
-import TelaDaPostagem from "./components/TelaDaPostagem/TelaDaPostagem";
+import styled, { createGlobalStyle } from 'styled-components';
+import FormularioPostagem from './components/FormularioPostagem/FormularioPostagem';
+import TelaDaPostagem from './components/TelaDaPostagem/TelaDaPostagem';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,25 +12,67 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100vw;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
 `;
 
 function App() {
-  return (
-    <>
-      <GlobalStyle />
+    // Form
+    const [title, setTitle] = useState('');
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
+    const [local, setLocal] = useState('');
 
-      <Container>
+    // Modelo
+    const [titleModel, setTitleModel] = useState('Titulo:');
+    const [imageModel, setImageModel] = useState('https://picsum.photos/536/351');
+    const [descriptionModel, setDescriptionModel] = useState('Descrição:');
 
-        <FormularioPostagem />
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+        setTitleModel(event.target.value);
+    };
 
-        <TelaDaPostagem />
+    const handleImageChange = (event) => {
+        setImage(event.target.value);
+        setImageModel(event.target.value);
+    };
 
-      </Container>
-    </>
-  );
+    const handleDescriptionChange = (event) => {
+        setDescription(event.target.value);
+        setDescriptionModel(event.target.value);
+    };
+
+    const handleLocalChange = (event) => {
+        setLocal(event.target.value);
+    };
+
+    return (
+        <>
+            <GlobalStyle />
+
+            <Container>
+                <FormularioPostagem
+                    title={title}
+                    handleTitleChange={handleTitleChange}
+                    image={image}
+                    handleImageChange={handleImageChange}
+                    description={description}
+                    handleDescriptionChange={handleDescriptionChange}
+                    local={local}
+                    handleLocalChange={handleLocalChange}
+                />
+
+                <TelaDaPostagem
+                    titleModel={titleModel}
+                    imageModel={imageModel}
+                    descriptionModel={descriptionModel}
+                    local={local}
+                />
+            </Container>
+        </>
+    );
 }
 
 export default App;
